@@ -1,5 +1,5 @@
-﻿Console.WriteLine("\n======================\nDivisors\n======================");
-Divisors.Run();
+﻿//Console.WriteLine("\n======================\nDivisors\n======================");
+//Divisors.Run();
 
 Console.WriteLine("\n======================\nArray Selector\n======================");
 ArraySelector.Run();
