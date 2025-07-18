@@ -34,8 +34,7 @@ public class TakingTurnsQueueTests
             }
 
             var person = players.GetNextPerson();
-            Debug.WriteLine(person);
-            //Assert.AreEqual(expectedResult[i].Name, person.Name);
+            Assert.AreEqual(expectedResult[i].Name, person.Name);
             i++;
         }
     }
