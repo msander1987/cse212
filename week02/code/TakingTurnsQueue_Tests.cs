@@ -28,7 +28,6 @@ public class TakingTurnsQueueTests
         players.AddPerson(bob.Name, bob.Turns);
         players.AddPerson(tim.Name, tim.Turns);
         players.AddPerson(sue.Name, sue.Turns);
-        //Debug.WriteLine(players);
         int i = 0;
         while (players.Length > 0)
         {   
