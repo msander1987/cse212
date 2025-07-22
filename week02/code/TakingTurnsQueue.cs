@@ -42,17 +42,16 @@ public class TakingTurnsQueue
         else
         {
             Person person = _people.Dequeue();
-            if (person.Turns > 1)//value 1 is valid for enqueue
+            if (person.Turns > 1)//We should not let it reach 0 otherwise it will get value forever.
             {
                 person.Turns = person.Turns - 1;
                 _people.Enqueue(person);
             }
-            if (person.Turns <= 0)
+            if (person.Turns <= 0)//If the person turns is less than or equal to 0, they continue to be added to the queue.
             {
-                
+                //It is not necessary to subtract 1
                 _people.Enqueue(person);
-            }
-           
+            }         
 
             return person;
         }

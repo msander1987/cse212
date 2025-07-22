@@ -13,7 +13,8 @@ public class PersonQueue
     /// <param name="person">The person to add</param>
     public void Enqueue(Person person)
     {
-        _queue.Add(person);
+        _queue.Add(person);//this should return an object which has both atributes, and no pass atributes like before.
+        //Also this is a List, so we should use Add function.
     }
 
     public Person Dequeue()
