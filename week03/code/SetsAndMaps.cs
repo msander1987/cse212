@@ -1,4 +1,6 @@
 using System.Text.Json;
+using System.Diagnostics;
+using Microsoft.VisualStudio.TestPlatform.ObjectModel.Client;
 
 public static class SetsAndMaps
 {
@@ -21,8 +23,37 @@ public static class SetsAndMaps
     /// <param name="words">An array of 2-character words (lowercase, no duplicates)</param>
     public static string[] FindPairs(string[] words)
     {
-        // TODO Problem 1 - ADD YOUR CODE HERE
-        return [];
+        var wordsSet = new HashSet<string>(words);
+        var pairsSet = new HashSet<string>();
+        string pair;
+        foreach (var word in wordsSet)
+        {
+
+            char[] chars = { word[1], word[0] };
+            if (word[0] == word[1])
+            {
+
+            }
+            else
+            {
+                string symmetric = new string(chars);
+
+                if (wordsSet.Contains(symmetric))
+                {
+                    pair = symmetric + " & " + word;
+                    pairsSet.Add(pair);
+                    wordsSet.Remove(symmetric);
+                }
+            }
+        }
+        string[] pairArray = new string[pairsSet.Count];
+        var i = 0;
+        foreach (var item in pairsSet)
+        {
+            pairArray[i] = item;
+            i++;
+        }
+        return pairArray;
     }
 
     /// <summary>
@@ -42,9 +73,20 @@ public static class SetsAndMaps
         foreach (var line in File.ReadLines(filename))
         {
             var fields = line.Split(",");
-            // TODO Problem 2 - ADD YOUR CODE HERE
+            if (degrees.ContainsKey(fields[3]))
+            {
+                var value = degrees[fields[3]];
+                degrees[fields[3]] = value + 1;
+            }
+            else
+            {
+                degrees.Add(fields[3], 1);
+            }
         }
-
+        foreach (var item in degrees)
+        {
+            Debug.Write(item);
+        }
         return degrees;
     }
 
